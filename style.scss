@@ -1,0 +1,76 @@
+$bg-dark: #121213;
+$btn-normal-dark: #818384;
+$btn-absent-dark: #3a3a3c;
+$btn-present-dark: #b59f3b;
+$btn-correct-dark: #538d4e;
+
+$background: $bg-dark;
+$btn-dark: $btn-normal-dark;
+$btn-absent: $btn-absent-dark;
+$btn-present: $btn-present-dark;
+$btn-correct: $btn-correct-dark;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  margin: 0;
+  background: $background;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .grid {
+    flex-grow: 1;
+  }
+
+  .keyboard {
+    display: grid;
+    grid-template-columns: repeat(20, minmax(auto, 1.25em));
+    grid-auto-rows: 3em;
+    gap: 0.25em;
+    justify-content: center;
+
+    .key {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      fill: white;
+      background: $btn-normal-dark;
+      border: 0;
+      border-radius: 0.25em;
+      cursor: pointer;
+
+      &.absent {
+        background: $btn-absent;
+      }
+
+      &.present {
+        background: $btn-present;
+      }
+
+      &.correct {
+        background: $btn-correct;
+      }
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.large {
+        grid-column: span 3;
+      }
+    }
+  }
+}
