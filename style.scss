@@ -28,9 +28,47 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
 
   .grid {
     flex-grow: 1;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(5, 4em);
+    grid-template-rows: repeat(6, 4em);
+    gap: 0.25em;
+    margin-bottom: 1em;
+
+    .tile {
+      font-size: 2em;
+      color: white;
+      font-weight: bold;
+      border: 0.05em solid #3a3a3c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: capitalize;
+
+      &[data-state='active'] {
+        border-color: white;
+      }
+
+      &[data-state='absent'] {
+        border: none;
+        background: $btn-absent;
+      }
+
+      &[data-state='present'] {
+        border: none;
+        background: $btn-present;
+      }
+
+      &[data-state='correct'] {
+        border: none;
+        background: $btn-correct;
+      }
+    }
   }
 
   .keyboard {
@@ -41,6 +79,7 @@ body {
     justify-content: center;
 
     .key {
+      font-size: inherit;
       grid-column: span 2;
       display: flex;
       align-items: center;
