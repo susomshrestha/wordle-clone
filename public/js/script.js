@@ -5791,7 +5791,7 @@ function startNewGame() {
   played += 1;
   newGame.classList.add('hidden');
   reset();
-  fetch('http://localhost:3000/wordle')
+  fetch(`${process.env.API_URL}/wordle`)
     .then((response) => response.json())
     .then((response) => {
       targetWord = response;
