@@ -2,20 +2,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
-const ejs = require('ejs');
 
 app.use(cors());
 app.options('*', cors());
+
 // Render static files
 app.use(express.static('public'));
 
-app.set('view engine', 'ejs');
-
 const axios = require('axios').default;
-
-app.get('/', function (req, res) {
-  res.render('pages/index');
-});
 
 app.get('/wordle', (req, res) => {
   let options = {
