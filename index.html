@@ -12,7 +12,28 @@
   <body>
     <div class="container">
       <div class="alert-container" data-alert-container></div>
-      <div class="nav">nav</div>
+      <div class="nav">
+        <div class="left-menu">
+          <div class="help" onclick="openHelp()">
+            &#x3f;
+          </div>
+          <div class="new hidden" data-new-game>
+            <button class="reset" onclick="startNewGame()">Play Again</button>
+          </div>
+        </div>
+        <div class="title">WORDLE CLONE</div>
+        <div class="options">
+          <div class="stat" onclick="showStat()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+              <path
+                fill="var(--color-tone-1)"
+                d="M16,11V3H8v6H2v12h20V11H16z M10,5h4v14h-4V5z M4,11h4v8H4V11z M20,19h-4v-6h4V19z"
+              ></path>
+            </svg>
+          </div>
+          <div class="toggle">dark</div>
+        </div>
+      </div>
       <div class="grid" data-guess-grid>
         <div class="tile"></div>
         <div class="tile"></div>
@@ -85,6 +106,58 @@
             ></path>
           </svg>
         </button>
+      </div>
+    </div>
+    <div id="stat-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="header">
+          <div>Statistics</div>
+          <div class="close" onclick="closeStat()">&times;</div>
+        </div>
+        <div class="content">
+          <div class="statistics">
+            <div class="played">
+              <div>Played</div>
+              <div data-played>1</div>
+            </div>
+            <div class="streak">
+              <div>Current Streak</div>
+              <div data-current-streak>1</div>
+            </div>
+            <div class="longest">
+              <div>Longest Streak</div>
+              <div data-max-streak>1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="help-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="header">
+          <div>How To Play</div>
+          <div class="close" onclick="closeHelp()">&times;</div>
+        </div>
+        <div class="content">
+          <div>
+            Guess the WORDLE in six tries. <br /><br />
+            Each guess must be a valid five-letter word. Hit the enter button to submit. <br /><br />
+            After each guess, the color of the tiles will change to show how close your guess was to the word.
+          </div>
+          <div class="example">
+            <div>Example</div>
+            <div class="tiles">
+              <div class="tile correct">W</div>
+              <div class="tile">O</div>
+              <div class="tile present">R</div>
+              <div class="tile">D</div>
+              <div class="tile absent">S</div>
+            </div>
+            <div class="hint">The letter <strong>W</strong> is present and in correct postition.</div>
+            <div class="hint">The letter <strong>R</strong> is present but in wrong postition.</div>
+            <div class="hint">The letter <strong>S</strong> is not present.</div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

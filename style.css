@@ -11,6 +11,132 @@ body {
   background: #121213;
 }
 
+body .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body .modal.hidden {
+  display: none;
+}
+
+body .modal .modal-content {
+  color: white;
+  -webkit-box-shadow: 0 4px 23px 0 black;
+          box-shadow: 0 4px 23px 0 black;
+  background-color: #121213;
+  padding: 1em;
+  border: 1px solid #1a1a1b;
+  width: 40%;
+}
+
+body .modal .modal-content .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+body .modal .modal-content .header .close {
+  cursor: pointer;
+}
+
+body .modal .modal-content .content .statistics {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  text-align: center;
+}
+
+body .modal .modal-content .content .statistics div {
+  padding: 0.45em;
+}
+
+body .modal .modal-content .content .example {
+  margin: 1em 0;
+}
+
+body .modal .modal-content .content .example .hint {
+  margin-top: 0.5em;
+}
+
+body .modal .modal-content .content .example .tiles {
+  padding: 1em;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: (minmax(20%, 70px))[5];
+      grid-template-columns: repeat(5, minmax(20%, 70px));
+  gap: 0.25em;
+  margin-bottom: 1em;
+}
+
+body .modal .modal-content .content .example .tiles .tile {
+  height: 2em;
+  font-size: 1.5em;
+  color: white;
+  font-weight: bold;
+  border: 0.05em solid #3a3a3c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+}
+
+body .modal .modal-content .content .example .tiles .tile.absent {
+  border: none;
+  background: #3a3a3c;
+}
+
+body .modal .modal-content .content .example .tiles .tile.present {
+  border: none;
+  background: #b59f3b;
+}
+
+body .modal .modal-content .content .example .tiles .tile.correct {
+  border: none;
+  background: #538d4e;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -23,7 +149,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
-  padding: 2em;
 }
 
 .container .alert-container {
@@ -66,6 +191,83 @@ body {
 
 .container .alert-container .alert.hide {
   opacity: 0;
+}
+
+.container .nav {
+  padding: 1em;
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+}
+
+.container .nav .title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.container .nav .left-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 200px;
+}
+
+.container .nav .left-menu .help {
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.container .nav .left-menu .new {
+  display: block;
+  margin-left: 1em;
+}
+
+.container .nav .left-menu .new button {
+  background-color: #538d4e;
+  padding: 0.5em;
+  border: none;
+  color: white;
+  border-radius: 0.15em;
+  cursor: pointer;
+}
+
+.container .nav .left-menu .new button:hover {
+  opacity: 0.5;
+}
+
+.container .nav .left-menu .new.hidden {
+  display: none;
+}
+
+.container .nav .options {
+  color: white;
+  fill: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 200px;
+}
+
+.container .nav .options .stat {
+  margin-right: 1em;
+  cursor: pointer;
 }
 
 .container .grid {
@@ -260,6 +462,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-bottom: 1em;
 }
 
 .container .keyboard .key {
@@ -282,15 +485,15 @@ body {
   cursor: pointer;
 }
 
-.container .keyboard .key.absent {
+.container .keyboard .key[data-state='absent'] {
   background: #3a3a3c;
 }
 
-.container .keyboard .key.present {
+.container .keyboard .key[data-state='present'] {
   background: #b59f3b;
 }
 
-.container .keyboard .key.correct {
+.container .keyboard .key[data-state='correct'] {
   background: #538d4e;
 }
 
