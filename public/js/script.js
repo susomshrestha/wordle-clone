@@ -5791,7 +5791,7 @@ function startNewGame() {
   played += 1;
   newGame.classList.add('hidden');
   reset();
-  fetch(`${process.env.API_URL}/wordle`)
+  fetch(`https://word-clone.herokuapp.com/wordle`)
     .then((response) => response.json())
     .then((response) => {
       targetWord = response;
