@@ -11,13 +11,14 @@
   </head>
   <body>
     <div class="container">
+      <div class="alert-container" data-alert-container></div>
       <div class="nav">nav</div>
-      <div class="grid">
-        <div class="tile" data-state="active">T</div>
-        <div class="tile" data-state="absent">H</div>
-        <div class="tile" data-state="present">A</div>
-        <div class="tile" data-state="correct">N</div>
-        <div class="tile">K</div>
+      <div class="grid" data-guess-grid>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
         <div class="tile"></div>
         <div class="tile"></div>
         <div class="tile"></div>
@@ -44,10 +45,10 @@
         <div class="tile"></div>
         <div class="tile"></div>
       </div>
-      <div class="keyboard">
-        <button class="key absent" data-key="Q">Q</button>
-        <button class="key present" data-key="W">W</button>
-        <button class="key correct" data-key="E">E</button>
+      <div data-keyboard class="keyboard">
+        <button class="key" data-key="Q">Q</button>
+        <button class="key" data-key="W">W</button>
+        <button class="key" data-key="E">E</button>
         <button class="key" data-key="R">R</button>
         <button class="key" data-key="T">T</button>
         <button class="key" data-key="Y">Y</button>

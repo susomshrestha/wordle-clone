@@ -29,6 +29,38 @@ body {
   display: flex;
   flex-direction: column;
   font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+  padding: 2em;
+
+  .alert-container {
+    position: fixed;
+    top: 5vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .alert {
+      pointer-events: none;
+      padding: 0.75em 1em;
+      background-color: hsl(204, 7%, 85%);
+      font-weight: bold;
+      border-radius: 0.25em;
+      opacity: 1;
+      transition: opacity 500ms ease-in-out;
+      margin-bottom: 0.5em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.hide {
+        opacity: 0;
+      }
+    }
+  }
 
   .grid {
     flex-grow: 1;
@@ -40,6 +72,56 @@ body {
     gap: 0.25em;
     margin-bottom: 1em;
 
+    .shake {
+      animation: shake 250ms ease-in-out;
+    }
+
+    @keyframes shake {
+      10% {
+        transform: translateX(-5%);
+      }
+      30% {
+        transform: translateX(5%);
+      }
+      50% {
+        transform: translateX(-10%);
+      }
+      70% {
+        transform: translateX(10%);
+      }
+      90% {
+        transform: translateX(-5%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .dance {
+      animation: dance 500ms ease-in-out;
+    }
+
+    @keyframes dance {
+      20% {
+        transform: translateY(-5%);
+      }
+      40% {
+        transform: translateY(5%);
+      }
+      60% {
+        transform: translateY(-10%);
+      }
+      80% {
+        transform: translateY(10%);
+      }
+      90% {
+        transform: translateY(-5%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .tile {
       font-size: 2em;
       color: white;
@@ -49,6 +131,7 @@ body {
       justify-content: center;
       align-items: center;
       text-transform: capitalize;
+      transition: transform 250ms linear;
 
       &[data-state='active'] {
         border-color: white;
@@ -68,6 +151,10 @@ body {
         border: none;
         background: $btn-correct;
       }
+    }
+
+    .flip {
+      transform: rotateX(90deg);
     }
   }
 

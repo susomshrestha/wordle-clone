@@ -23,6 +23,49 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+  padding: 2em;
+}
+
+.container .alert-container {
+  position: fixed;
+  top: 5vh;
+  left: 50vw;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .alert-container .alert {
+  pointer-events: none;
+  padding: 0.75em 1em;
+  background-color: #d6d9db;
+  font-weight: bold;
+  border-radius: 0.25em;
+  opacity: 1;
+  -webkit-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+  margin-bottom: 0.5em;
+}
+
+.container .alert-container .alert:last-child {
+  margin-bottom: 0;
+}
+
+.container .alert-container .alert.hide {
+  opacity: 0;
 }
 
 .container .grid {
@@ -44,6 +87,124 @@ body {
   margin-bottom: 1em;
 }
 
+.container .grid .shake {
+  -webkit-animation: shake 250ms ease-in-out;
+          animation: shake 250ms ease-in-out;
+}
+
+@-webkit-keyframes shake {
+  10% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  30% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
+  50% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+  }
+  70% {
+    -webkit-transform: translateX(10%);
+            transform: translateX(10%);
+  }
+  90% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes shake {
+  10% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  30% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
+  50% {
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+  }
+  70% {
+    -webkit-transform: translateX(10%);
+            transform: translateX(10%);
+  }
+  90% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.container .grid .dance {
+  -webkit-animation: dance 500ms ease-in-out;
+          animation: dance 500ms ease-in-out;
+}
+
+@-webkit-keyframes dance {
+  20% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  40% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+  }
+  80% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  90% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes dance {
+  20% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  40% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+  60% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+  }
+  80% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  90% {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 .container .grid .tile {
   font-size: 2em;
   color: white;
@@ -59,6 +220,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-transform: capitalize;
+  -webkit-transition: -webkit-transform 250ms linear;
+  transition: -webkit-transform 250ms linear;
+  transition: transform 250ms linear;
+  transition: transform 250ms linear, -webkit-transform 250ms linear;
 }
 
 .container .grid .tile[data-state='active'] {
@@ -78,6 +243,11 @@ body {
 .container .grid .tile[data-state='correct'] {
   border: none;
   background: #538d4e;
+}
+
+.container .grid .flip {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
 }
 
 .container .keyboard {
