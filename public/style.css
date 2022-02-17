@@ -5,6 +5,8 @@
   --key-bg: #d3d6da;
   --tile-empty: #d3d6da;
   --tile-active-border: #878a8c;
+  --modal-bg: #ffffff;
+  --modal-border: #f6f7f8;
 }
 
 :root[data-theme='dark'] {
@@ -14,6 +16,8 @@
   --key-bg: #818384;
   --tile-empty: #3a3a3c;
   --tile-active-border: #565758;
+  --modal-bg: #121213;
+  --modal-border: #1a1a1b;
 }
 
 *,
@@ -54,11 +58,11 @@ body .modal.hidden {
 
 body .modal .modal-content {
   color: var(--text-color);
-  -webkit-box-shadow: 0 4px 23px 0 black;
-          box-shadow: 0 4px 23px 0 black;
-  background-color: #121213;
+  -webkit-box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--modal-bg);
   padding: 1em;
-  border: 1px solid #1a1a1b;
+  border: 1px solid var(--modal-border);
   width: 40%;
 }
 
