@@ -5794,16 +5794,20 @@ function startNewGame() {
   played += 1;
   newGame.classList.add('hidden');
   reset();
-  fetch(`https://word-clone.herokuapp.com/wordle`)
-    .then((response) => response.json())
-    .then((response) => {
-      targetWord = response;
-      startInteraction();
-      console.log(targetWord);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  // TODO: hide target word from api
+  // fetch(`https://word-clone.herokuapp.com/wordle`)
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     targetWord = response;
+  //     startInteraction();
+  //     console.log(targetWord);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  targetWord = dictionary[Math.floor(Math.random() * dictionary.length)];
+  console.log(targetWord);
+  startInteraction();
 }
 
 function reset() {
@@ -5950,7 +5954,7 @@ function checkWinLose(guess, tiles) {
 
   const remainingTiles = guessGrid.querySelectorAll(':not([data-letter])');
   if (remainingTiles.length === 0) {
-    showAlert(`The word was ${targetWord.toUpperCase()}`, null);
+    showAlert(`The word was ${targetWord.toUpperCase()}`, 5000);
     stopInteraction();
 
     newGame.classList.remove('hidden');
