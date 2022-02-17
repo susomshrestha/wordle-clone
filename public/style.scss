@@ -10,6 +10,24 @@ $btn-absent: $btn-absent-dark;
 $btn-present: $btn-present-dark;
 $btn-correct: $btn-correct-dark;
 
+:root[data-theme='light'] {
+  --text-color: black;
+  --body-background: #ffffff;
+  --tile-active: black;
+  --key-bg: #d3d6da;
+  --tile-empty: #d3d6da;
+  --tile-active-border: #878a8c;
+}
+
+:root[data-theme='dark'] {
+  --text-color: white;
+  --body-background: #121213;
+  --tile-active: white;
+  --key-bg: #818384;
+  --tile-empty: #3a3a3c;
+  --tile-active-border: #565758;
+}
+
 *,
 *::after,
 *::before {
@@ -19,7 +37,7 @@ $btn-correct: $btn-correct-dark;
 
 body {
   margin: 0;
-  background: $background;
+  background: var(--body-background);
 
   .modal {
     position: fixed;
@@ -38,7 +56,7 @@ body {
     }
 
     .modal-content {
-      color: white;
+      color: var(--text-color);
       box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 20%);
       background-color: #121213;
       padding: 1em;
@@ -63,7 +81,7 @@ body {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          color: white;
+          color: var(--text-color);
           text-align: center;
 
           div {
@@ -89,7 +107,7 @@ body {
             .tile {
               height: 2em;
               font-size: 1.5em;
-              color: white;
+              color: var(--text-color);
               font-weight: bold;
               border: 0.05em solid #3a3a3c;
               display: flex;
@@ -164,7 +182,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
+    color: var(--text-color);
 
     .title {
       font-weight: bold;
@@ -177,7 +195,7 @@ body {
       min-width: 200px;
 
       .help {
-        border: 1px solid white;
+        border: 1px solid var(--text-color);
         border-radius: 50%;
         padding: 0.25em 0.5em;
         cursor: pointer;
@@ -192,7 +210,7 @@ body {
           background-color: $btn-correct;
           padding: 0.5em;
           border: none;
-          color: white;
+          color: var(--text-color);
           border-radius: 0.15em;
           cursor: pointer;
 
@@ -208,8 +226,8 @@ body {
     }
 
     .options {
-      color: white;
-      fill: white;
+      color: var(--text-color);
+      fill: var(--text-color);
       display: flex;
       align-items: center;
       min-width: 200px;
@@ -217,6 +235,79 @@ body {
       .stat {
         margin-right: 1em;
         cursor: pointer;
+      }
+
+      .toggle {
+        margin-left: 1em;
+        display: flex;
+        align-items: center;
+
+        div {
+          margin-left: 1em;
+          font-size: 1em;
+        }
+
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 2.5em;
+          height: 1.5em;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #565758;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: '';
+          height: 1.1em;
+          width: 1.1em;
+          left: 0.225em;
+          bottom: 0.215em;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        input:checked + .slider {
+          background-color: #538d4e;
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px #538d4e;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(1em);
+          -ms-transform: translateX(1em);
+          transform: translateX(1em);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 2em;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
       }
     }
   }
@@ -285,7 +376,7 @@ body {
       font-size: 2em;
       color: white;
       font-weight: bold;
-      border: 0.05em solid #3a3a3c;
+      border: 0.15em solid var(--tile-empty);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -293,7 +384,8 @@ body {
       transition: transform 250ms linear;
 
       &[data-state='active'] {
-        border-color: white;
+        border-color: var(--tile-active-border);
+        color: var(--tile-active);
       }
 
       &[data-state='absent'] {
@@ -331,23 +423,26 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      fill: white;
-      background: $btn-normal-dark;
+      color: var(--text-color);
+      fill: var(--text-color);
+      background: var(--key-bg);
       border: 0;
       border-radius: 0.25em;
       cursor: pointer;
 
       &[data-state='absent'] {
         background: $btn-absent;
+        color: white;
       }
 
       &[data-state='present'] {
         background: $btn-present;
+        color: white;
       }
 
       &[data-state='correct'] {
         background: $btn-correct;
+        color: white;
       }
 
       &:hover {

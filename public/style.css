@@ -1,3 +1,21 @@
+:root[data-theme='light'] {
+  --text-color: black;
+  --body-background: #ffffff;
+  --tile-active: black;
+  --key-bg: #d3d6da;
+  --tile-empty: #d3d6da;
+  --tile-active-border: #878a8c;
+}
+
+:root[data-theme='dark'] {
+  --text-color: white;
+  --body-background: #121213;
+  --tile-active: white;
+  --key-bg: #818384;
+  --tile-empty: #3a3a3c;
+  --tile-active-border: #565758;
+}
+
 *,
 *::after,
 *::before {
@@ -8,7 +26,7 @@
 
 body {
   margin: 0;
-  background: #121213;
+  background: var(--body-background);
 }
 
 body .modal {
@@ -35,7 +53,7 @@ body .modal.hidden {
 }
 
 body .modal .modal-content {
-  color: white;
+  color: var(--text-color);
   -webkit-box-shadow: 0 4px 23px 0 black;
           box-shadow: 0 4px 23px 0 black;
   background-color: #121213;
@@ -73,7 +91,7 @@ body .modal .modal-content .content .statistics {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -107,7 +125,7 @@ body .modal .modal-content .content .example .tiles {
 body .modal .modal-content .content .example .tiles .tile {
   height: 2em;
   font-size: 1.5em;
-  color: white;
+  color: var(--text-color);
   font-weight: bold;
   border: 0.05em solid #3a3a3c;
   display: -webkit-box;
@@ -205,7 +223,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: white;
+  color: var(--text-color);
 }
 
 .container .nav .title {
@@ -224,7 +242,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .nav .left-menu .help {
-  border: 1px solid white;
+  border: 1px solid var(--text-color);
   border-radius: 50%;
   padding: 0.25em 0.5em;
   cursor: pointer;
@@ -240,7 +258,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
   background-color: #538d4e;
   padding: 0.5em;
   border: none;
-  color: white;
+  color: var(--text-color);
   border-radius: 0.15em;
   cursor: pointer;
 }
@@ -254,8 +272,8 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .nav .options {
-  color: white;
-  fill: white;
+  color: var(--text-color);
+  fill: var(--text-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,6 +286,83 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 .container .nav .options .stat {
   margin-right: 1em;
   cursor: pointer;
+}
+
+.container .nav .options .toggle {
+  margin-left: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* Hide default HTML checkbox */
+  /* The slider */
+  /* Rounded sliders */
+}
+
+.container .nav .options .toggle div {
+  margin-left: 1em;
+  font-size: 1em;
+}
+
+.container .nav .options .toggle .switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5em;
+  height: 1.5em;
+}
+
+.container .nav .options .toggle .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.container .nav .options .toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #565758;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.container .nav .options .toggle .slider:before {
+  position: absolute;
+  content: '';
+  height: 1.1em;
+  width: 1.1em;
+  left: 0.225em;
+  bottom: 0.215em;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.container .nav .options .toggle input:checked + .slider {
+  background-color: #538d4e;
+}
+
+.container .nav .options .toggle input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #538d4e;
+          box-shadow: 0 0 1px #538d4e;
+}
+
+.container .nav .options .toggle input:checked + .slider:before {
+  -webkit-transform: translateX(1em);
+  transform: translateX(1em);
+}
+
+.container .nav .options .toggle .slider.round {
+  border-radius: 2em;
+}
+
+.container .nav .options .toggle .slider.round:before {
+  border-radius: 50%;
 }
 
 .container .grid {
@@ -411,7 +506,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
   font-size: 2em;
   color: white;
   font-weight: bold;
-  border: 0.05em solid #3a3a3c;
+  border: 0.15em solid var(--tile-empty);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,7 +524,8 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .grid .tile[data-state='active'] {
-  border-color: white;
+  border-color: var(--tile-active-border);
+  color: var(--tile-active);
 }
 
 .container .grid .tile[data-state='absent'] {
@@ -477,9 +573,9 @@ body .modal .modal-content .content .example .tiles .tile.correct {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: white;
-  fill: white;
-  background: #818384;
+  color: var(--text-color);
+  fill: var(--text-color);
+  background: var(--key-bg);
   border: 0;
   border-radius: 0.25em;
   cursor: pointer;
@@ -487,14 +583,17 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 
 .container .keyboard .key[data-state='absent'] {
   background: #3a3a3c;
+  color: white;
 }
 
 .container .keyboard .key[data-state='present'] {
   background: #b59f3b;
+  color: white;
 }
 
 .container .keyboard .key[data-state='correct'] {
   background: #538d4e;
+  color: white;
 }
 
 .container .keyboard .key:hover {

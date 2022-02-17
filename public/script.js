@@ -5765,6 +5765,7 @@ let longestStreak = 0;
 let currentStreak = 0;
 let played = 0;
 
+const html = document.querySelector('html');
 const guessGrid = document.querySelector('[data-guess-grid]');
 const alertContainer = document.querySelector('[data-alert-container]');
 const keyboard = document.querySelector('[data-keyboard]');
@@ -5776,6 +5777,8 @@ const statModal = document.getElementById('stat-modal');
 const helpModal = document.getElementById('help-modal');
 
 let targetWord = '';
+
+html.dataset.theme = `dark`;
 
 function startInteraction() {
   document.addEventListener('click', handleMouseClick);
@@ -6034,4 +6037,13 @@ function openHelp() {
 
 function closeHelp() {
   helpModal.classList.add('hidden');
+}
+
+function changeTheme() {
+  const checked = document.querySelector('[data-checkbox]').checked;
+  if (checked) {
+    html.dataset.theme = `dark`;
+    return;
+  }
+  html.dataset.theme = `light`;
 }
