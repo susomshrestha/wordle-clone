@@ -1,12 +1,15 @@
-$light-empty: #d3d6da;
-$dark-bg: #121213;
+:root {
+  --color-present: #b59f3b;
+  --color-absent: #3a3a3c;
+  --color-correct: #538d4e;
+}
 
 :root[data-theme='light'] {
   --text-color: black;
   --body-background: #ffffff;
   --tile-active: black;
-  --key-bg: $light-empty;
-  --tile-empty: $light-empty;
+  --key-bg: #d3d6da;
+  --tile-empty: #d3d6da;
   --tile-active-border: #878a8c;
   --modal-bg: #ffffff;
   --modal-border: #f6f7f8;
@@ -14,12 +17,12 @@ $dark-bg: #121213;
 
 :root[data-theme='dark'] {
   --text-color: white;
-  --body-background: $dark-bg;
+  --body-background: #121213;
   --tile-active: white;
   --key-bg: #818384;
   --tile-empty: #3a3a3c;
   --tile-active-border: #565758;
-  --modal-bg: $dark-bg;
+  --modal-bg: #121213;
   --modal-border: #1a1a1b;
 }
 
@@ -112,17 +115,17 @@ body {
 
               &.absent {
                 border: none;
-                background: $btn-absent;
+                background: var(--color-absent);
               }
 
               &.present {
                 border: none;
-                background: $btn-present;
+                background: var(--color-present);
               }
 
               &.correct {
                 border: none;
-                background: $btn-correct;
+                background: var(--color-correct);
               }
             }
           }
@@ -180,6 +183,7 @@ body {
     color: var(--text-color);
 
     .title {
+      color: var(--text-color);
       font-weight: bold;
       font-size: 1.5em;
     }
@@ -202,7 +206,7 @@ body {
         margin-left: 1em;
 
         button {
-          background-color: $btn-correct;
+          background-color: var(--color-correct);
           padding: 0.5em;
           border: none;
           color: var(--text-color);
@@ -312,8 +316,8 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
-    grid-template-columns: repeat(5, 4em);
-    grid-template-rows: repeat(6, 4em);
+    grid-template-columns: repeat(5, 3em);
+    grid-template-rows: repeat(6, 3em);
     gap: 0.25em;
     margin-bottom: 1em;
 
@@ -385,17 +389,17 @@ body {
 
       &[data-state='absent'] {
         border: none;
-        background: $btn-absent;
+        background: var(--color-absent);
       }
 
       &[data-state='present'] {
         border: none;
-        background: $btn-present;
+        background: var(--color-present);
       }
 
       &[data-state='correct'] {
         border: none;
-        background: $btn-correct;
+        background: var(--color-correct);
       }
     }
 
@@ -426,17 +430,17 @@ body {
       cursor: pointer;
 
       &[data-state='absent'] {
-        background: $btn-absent;
+        background: var(--color-absent);
         color: white;
       }
 
       &[data-state='present'] {
-        background: $btn-present;
+        background: var(--color-present);
         color: white;
       }
 
       &[data-state='correct'] {
-        background: $btn-correct;
+        background: var(--color-correct);
         color: white;
       }
 

@@ -5916,30 +5916,34 @@ function flipTile(tile, index, array, guess) {
     tile.classList.add('flip');
   }, (index * FLIP_ANIMATION_DURATION) / 2);
 
-  tile.addEventListener('transitionend', () => {
-    tile.classList.remove('flip');
-    if (targetWord[index] === letter) {
-      tile.dataset.state = 'correct';
-      key.dataset.state = 'correct';
-    } else if (targetWord.includes(letter)) {
-      tile.dataset.state = 'present';
-      key.dataset.state = 'present';
-    } else {
-      tile.dataset.state = 'absent';
-      key.dataset.state = 'absent';
-    }
+  tile.addEventListener(
+    'transitionend',
+    () => {
+      tile.classList.remove('flip');
+      if (targetWord[index] === letter) {
+        tile.dataset.state = 'correct';
+        key.dataset.state = 'correct';
+      } else if (targetWord.includes(letter)) {
+        tile.dataset.state = 'present';
+        key.dataset.state = 'present';
+      } else {
+        tile.dataset.state = 'absent';
+        key.dataset.state = 'absent';
+      }
 
-    if (index === array.length - 1) {
-      tile.addEventListener(
-        'transitionend',
-        () => {
-          startInteraction();
-          checkWinLose(guess, array);
-        },
-        { once: true }
-      );
-    }
-  });
+      if (index === array.length - 1) {
+        tile.addEventListener(
+          'transitionend',
+          () => {
+            startInteraction();
+            checkWinLose(guess, array);
+          },
+          { once: true }
+        );
+      }
+    },
+    { once: true }
+  );
 }
 
 function checkWinLose(guess, tiles) {

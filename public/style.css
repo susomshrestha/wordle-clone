@@ -1,3 +1,9 @@
+:root {
+  --color-present: #b59f3b;
+  --color-absent: #3a3a3c;
+  --color-correct: #538d4e;
+}
+
 :root[data-theme='light'] {
   --text-color: black;
   --body-background: #ffffff;
@@ -146,17 +152,17 @@ body .modal .modal-content .content .example .tiles .tile {
 
 body .modal .modal-content .content .example .tiles .tile.absent {
   border: none;
-  background: #3a3a3c;
+  background: var(--color-absent);
 }
 
 body .modal .modal-content .content .example .tiles .tile.present {
   border: none;
-  background: #b59f3b;
+  background: var(--color-present);
 }
 
 body .modal .modal-content .content .example .tiles .tile.correct {
   border: none;
-  background: #538d4e;
+  background: var(--color-correct);
 }
 
 .container {
@@ -231,6 +237,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .nav .title {
+  color: var(--text-color);
   font-weight: bold;
   font-size: 1.5em;
 }
@@ -259,7 +266,7 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .nav .left-menu .new button {
-  background-color: #538d4e;
+  background-color: var(--color-correct);
   padding: 0.5em;
   border: none;
   color: var(--text-color);
@@ -380,10 +387,10 @@ body .modal .modal-content .content .example .tiles .tile.correct {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  -ms-grid-columns: (4em)[5];
-      grid-template-columns: repeat(5, 4em);
-  -ms-grid-rows: (4em)[6];
-      grid-template-rows: repeat(6, 4em);
+  -ms-grid-columns: (3em)[5];
+      grid-template-columns: repeat(5, 3em);
+  -ms-grid-rows: (3em)[6];
+      grid-template-rows: repeat(6, 3em);
   gap: 0.25em;
   margin-bottom: 1em;
 }
@@ -534,17 +541,17 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 
 .container .grid .tile[data-state='absent'] {
   border: none;
-  background: #3a3a3c;
+  background: var(--color-absent);
 }
 
 .container .grid .tile[data-state='present'] {
   border: none;
-  background: #b59f3b;
+  background: var(--color-present);
 }
 
 .container .grid .tile[data-state='correct'] {
   border: none;
-  background: #538d4e;
+  background: var(--color-correct);
 }
 
 .container .grid .flip {
@@ -586,17 +593,17 @@ body .modal .modal-content .content .example .tiles .tile.correct {
 }
 
 .container .keyboard .key[data-state='absent'] {
-  background: #3a3a3c;
+  background: var(--color-absent);
   color: white;
 }
 
 .container .keyboard .key[data-state='present'] {
-  background: #b59f3b;
+  background: var(--color-present);
   color: white;
 }
 
 .container .keyboard .key[data-state='correct'] {
-  background: #538d4e;
+  background: var(--color-correct);
   color: white;
 }
 
