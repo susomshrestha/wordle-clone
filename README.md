@@ -3,7 +3,7 @@
 
 This is a clone project of the popular word guessing game **WORDLE**. This is made using vanilla Javascript.
 
-Click [Here](https://word-clone.herokuapp.com/) to check out the demo.
+Click [Here](https://susomshrestha.github.io/wordle-clone/public/index.html) to check out the demo.
 
 ## Build and Run
 ---
